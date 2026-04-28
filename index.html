@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Icon Grid</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #2c3e50;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 100px);
+            gap: 30px;
+        }
+
+        .icon-box {
+            width: 100px;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 48px;
+            cursor: pointer;
+            color: #ecf0f1;
+            transition: transform 0.2s ease;
+        }
+
+        .icon-box img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .icon-box:hover {
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-container">
+        <div class="icon-box" data-sound="1"><img src="Screenshot 2026-04-28 at 6.29.31 pm.png" alt="Screenshot 1"></div>
+        <div class="icon-box" data-sound="2"><img src="Screenshot 2026-04-28 at 6.30.01 pm.png" alt="Screenshot 2"></div>
+        <div class="icon-box" data-sound="3"><img src="Screenshot 2026-04-28 at 6.30.21 pm.png" alt="Screenshot 3"></div>
+        <div class="icon-box" data-sound="4"><img src="Screenshot 2026-04-28 at 6.31.00 pm.png" alt="Screenshot 4"></div>
+        <div class="icon-box" data-sound="5"><img src="moon.png" alt="Screenshot 5"></i></div>
+        <div class="icon-box" data-sound="6"><img src="sunrise.png"></i></div>
+        <div class="icon-box" data-sound="7"><img src="planet.png"></i></div>
+        <div class="icon-box" data-sound="8"><img src="shootingstar.png"></i></div>
+        <div class="icon-box" data-sound="9"><img src="STAR.png"></i></div>
+    </div>
+
+    <script>
+        const sounds = {
+            1: 'freesound_community-triangle_open_01-102876.mp3',
+            2: 'choir.mp3',
+            3: 'blink.mp3',
+            4: 'piano.mp3',
+            5: 'rocketship.mp3',
+            6: 'rooster.mp3',
+            7: 'orbit.mp3',
+            8: 'doppler.mp3',
+            9: 'sun.mp3'
+        };
+
+        document.querySelectorAll('.icon-box').forEach(box => {
+            box.addEventListener('mouseenter', () => {
+                const soundId = box.dataset.sound;
+                const audio = new Audio(sounds[soundId]);
+                audio.play();
+            });
+        });
+    </script>
+</body>
+</html>
+```
+
+
